@@ -37,10 +37,9 @@ PRODUCT_COPY_FILES += \
 # SU Support
 SUPERUSER_EMBEDDED := true
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.selinux=1
+PRODUCT_PACKAGES := \
+    Superuser \
+    su
 
-# CM Hardware Abstraction Framework
-PRODUCT_PACKAGES += \
-    org.cyanogenmod.hardware \
-    org.cyanogenmod.hardware.xml
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.root_access=3
