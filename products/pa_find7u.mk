@@ -14,10 +14,10 @@
 
 # Check for target product
 
-ifeq (pa_serranoltexx,$(TARGET_PRODUCT))
+ifeq (pa_find7u,$(TARGET_PRODUCT))
 
 # OVERLAY_TARGET adds overlay asset source
-OVERLAY_TARGET := pa_hdpi
+OVERLAY_TARGET := pa_xxhdpi
 
 # Build paprefs from sources
 PREFS_FROM_SOURCE ?= false
@@ -29,16 +29,20 @@ $(call inherit-product, vendor/pa/configs/telephony.mk)
 include vendor/pa/main.mk
 
 # Inherit device configuration
-$(call inherit-product, device/samsung/serranoltexx/full_serranoltexx.mk)
+$(call inherit-product, device/oppo/find7u/full_find7u.mk)
 
 # Override AOSP build properties
-PRODUCT_NAME := pa_serranoltexx
-PRODUCT_DEVICE := serranoltexx
-PRODUCT_BRAND := samsung
-PRODUCT_MANUFACTURER := samsung
-PRODUCT_MODEL := GT-I9195
+PRODUCT_NAME := pa_find7u
+PRODUCT_DEVICE := find7u
+PRODUCT_BRAND := OPPO
+PRODUCT_MANUFACTURER := OPPO
+PRODUCT_MODEL := find7
 
 # Set build fingerprint / ID / Product Name ect.
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=serranoltexx BUILD_FINGERPRINT="samsung/serranoltexx/serranolte:4.4.2/KOT49H/I9195XXUCNE6:user/release-keys" PRIVATE_BUILD_DESC="serranoltexx-user 4.4.2 KOT49H I9195XXUCNE6 release-keys"
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    BUILD_PRODUCT=find7u \
+    TARGET_DEVICE=find7u \
+    BUILD_FINGERPRINT="4.3/JLS36C/1390465867:user/release-keys" \
+    PRIVATE_BUILD_DESC="msm8974-user 4.3 JLS36C eng.root.20140510.152835 release-keys"
 
 endif

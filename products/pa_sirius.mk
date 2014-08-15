@@ -13,11 +13,10 @@
 # limitations under the License.
 
 # Check for target product
-
-ifeq (pa_serranoltexx,$(TARGET_PRODUCT))
+ifeq (pa_sirius,$(TARGET_PRODUCT))
 
 # OVERLAY_TARGET adds overlay asset source
-OVERLAY_TARGET := pa_hdpi
+OVERLAY_TARGET := pa_xhdpi
 
 # Build paprefs from sources
 PREFS_FROM_SOURCE ?= false
@@ -29,16 +28,14 @@ $(call inherit-product, vendor/pa/configs/telephony.mk)
 include vendor/pa/main.mk
 
 # Inherit device configuration
-$(call inherit-product, device/samsung/serranoltexx/full_serranoltexx.mk)
+$(call inherit-product, device/sony/sirius/full_sirius.mk)
 
 # Override AOSP build properties
-PRODUCT_NAME := pa_serranoltexx
-PRODUCT_DEVICE := serranoltexx
-PRODUCT_BRAND := samsung
-PRODUCT_MANUFACTURER := samsung
-PRODUCT_MODEL := GT-I9195
-
-# Set build fingerprint / ID / Product Name ect.
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=serranoltexx BUILD_FINGERPRINT="samsung/serranoltexx/serranolte:4.4.2/KOT49H/I9195XXUCNE6:user/release-keys" PRIVATE_BUILD_DESC="serranoltexx-user 4.4.2 KOT49H I9195XXUCNE6 release-keys"
+PRODUCT_NAME := pa_sirius
+PRODUCT_DEVICE := sirius
+PRODUCT_BRAND := sony
+PRODUCT_MANUFACTURER := Sony
+PRODUCT_MODEL := Xperia Z2
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=D6503 TARGET_DEVICE=sirius BUILD_FINGERPRINT=Sony/D6503/D6503:4.4.2/17.1.1.A.0.402/bf53dw:user/release-keys PRIVATE_BUILD_DESC="D6503-user 4.4.2 17.1.1.A.0.402 bf53dw release-keys"
 
 endif
